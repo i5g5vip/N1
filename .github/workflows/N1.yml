@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: 斐讯N1(只含Ssr+Plus,HelloWorld,PassWall,OpenClash)未打包
+name: 斐讯N1(含AdGuardHome,HelloWorld,PassWall,OpenClash)未打包
 
 on:
   repository_dispatch:
@@ -18,7 +18,7 @@ on:
     branches:
       - main
     paths:
-      - 'N1.config'
+      - '.config'
 #  schedule:
 #    - cron: 0 8 * * 5
   watch:
@@ -28,7 +28,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: N1.config
+  CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   SSH_ACTIONS: false
