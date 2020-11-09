@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: 斐讯N1(含AdGuardHome,HelloWorld,PassWall,OpenClash)未打包
+name:  斐讯N1
 
 on:
   repository_dispatch:
