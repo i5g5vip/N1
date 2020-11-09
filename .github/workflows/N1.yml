@@ -85,10 +85,7 @@ jobs:
       
     - name: lua-maxminddb
       run: cd openwrt && git clone https://github.com/jerrykuku/lua-maxminddb package/lean/lua-maxminddb
-      
-    - name: luci-app-vssr
-      run: cd openwrt && git clone https://github.com/jerrykuku/luci-app-vssr package/lean/luci-app-vssr
-      
+            
     - name: luci-app-adguardhome
       run: cd openwrt &&  git clone https://github.com/rufengsuixing/luci-app-adguardhome package/lean/luci-app-adguardhome
 
