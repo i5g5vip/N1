@@ -82,16 +82,16 @@ jobs:
       run: cd openwrt && git clone https://github.com/tuanqing/install-program package/install-program
             
     - name: rm xray
-      run: cd openwrt &&  rm -rf lede/package/lean/xray
+      run: cd openwrt &&  rm -rf package/lean/xray
 
     - name: rm v2ray
-      run: cd openwrt &&  rm -rf lede/package/lean/v2ray
+      run: cd openwrt &&  rm -rf package/lean/v2ray
 
     - name: rm v2ray-plugin
-      run: cd openwrt &&  rm -rf lede/package/lean/v2ray-plugin
+      run: cd openwrt &&  rm -rf package/lean/v2ray-plugin
 
     - name: rm trojan
-      run: cd openwrt &&  rm -rf lede/package/lean/trojan
+      run: cd openwrt &&  rm -rf package/lean/trojan
     
     - name: Load custom configuration
       run: |
