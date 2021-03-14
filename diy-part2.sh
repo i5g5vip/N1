@@ -15,3 +15,6 @@ sed -i 's/192.168.1.1/10.1.1.254/g' package/base-files/files/bin/config_generate
 
 # 去除默认主题
 sed -i 's/+luci-theme-bootstrap/ /g' feeds/luci/collections/luci/Makefile
+
+# 添加cpufreq
+sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
