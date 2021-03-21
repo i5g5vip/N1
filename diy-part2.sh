@@ -18,3 +18,4 @@ sed -i 's/+luci-theme-bootstrap/ /g' feeds/luci/collections/luci/Makefile
 
 # 添加cpufreq
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
+sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
