@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Flippy_N1
+name: 21.02_N1
 
 on:
   repository_dispatch:
@@ -20,8 +20,8 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/Lienol/openwrt
+  REPO_BRANCH: 21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -66,6 +66,20 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
+    - name: Download lean
+      id: lean
+      run: |
+        cd openwrt
+        rm -rf package/lean
+        git init
+        git remote add origin https://github.com/coolsnowwolf/lede
+        git config core.sparsecheckout true
+        echo "lean" >> .git/info/sparse-checkout
+        git pull origin master
+        
+    - name: Install-program
+      run: cd openwrt && git clone https://github.com/tuanqing/install-program package/install-program
+      
     - name: Update clean
       run: cd openwrt && ./scripts/feeds clean
       
@@ -75,9 +89,6 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
       
-    #- name: Install-program
-    #  run: cd openwrt && git clone https://github.com/tuanqing/install-program package/install-program      
-    
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
