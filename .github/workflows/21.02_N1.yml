@@ -71,11 +71,14 @@ jobs:
       run: |
         cd openwrt
         rm -rf package/lean
+        mkdir temp
+        cd temp
         git init
         git remote add origin https://github.com/coolsnowwolf/lede
         git config core.sparsecheckout true
         echo "lean" >> .git/info/sparse-checkout
         git pull origin master
+        mv package/lean ../package/
         
     - name: Install-program
       run: cd openwrt && git clone https://github.com/tuanqing/install-program package/install-program
