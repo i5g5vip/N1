@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: 21.02_N1
+name: OpenWrt 21.02 N1
 
 on:
   repository_dispatch:
@@ -20,8 +20,8 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/Lienol/openwrt
-  REPO_BRANCH: 21.02
+  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -67,19 +67,8 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
     - name: Download lean
-      id: lean
-      run: |
-        cd openwrt
-        rm -rf package/lean
-        mkdir temp
-        cd temp
-        git init
-        git remote add origin https://github.com/coolsnowwolf/lede
-        git config core.sparsecheckout true
-        echo "lean" >> .git/info/sparse-checkout
-        git pull origin master
-        mv package/lean ../package/
-        
+      run: cd openwrt && svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
+
     - name: Install-program
       run: cd openwrt && git clone https://github.com/tuanqing/install-program package/install-program
       
