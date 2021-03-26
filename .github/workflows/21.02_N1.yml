@@ -67,7 +67,11 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
     - name: Download lean
-      run: cd openwrt && svn co https://github.com/coolsnowwolf/lede/trunk/package/lean package/lean
+      id: lean
+      run: |
+        cd openwrt
+        svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean package/lean
+        svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 
     - name: Install-program
       run: cd openwrt && git clone https://github.com/tuanqing/install-program package/install-program
