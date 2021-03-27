@@ -70,6 +70,7 @@ jobs:
       id: lean
       run: |
         cd openwrt
+        rm -rf package/lean
         svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
         svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
         svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
