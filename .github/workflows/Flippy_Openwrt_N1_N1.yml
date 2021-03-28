@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: tuanqing N1
+name: Flippy_Openwrt_N1
 
 on:
   repository_dispatch:
@@ -75,10 +75,7 @@ jobs:
       run: cd openwrt && ./scripts/feeds update -a
 
     - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
-      
-    - name: Install-program
-      run: cd openwrt && git clone https://github.com/tuanqing/install-program package/install-program      
+      run: cd openwrt && ./scripts/feeds install -a  
     
     - name: Load custom configuration
       run: |
