@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt 21.02 N1
+name: OpenWrt 21.02 K2P
 
 on:
   repository_dispatch:
@@ -86,6 +86,7 @@ jobs:
         svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper package/lean/ipv6-helper
         svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ddns-scripts_aliyun package/lean/ddns-scripts_aliyun
         svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ddns-scripts_dnspod package/lean/ddns-scripts_dnspod
+        svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/MTK7615-DBDC-LINUX5.4 package/lean/MTK7615-DBDC-LINUX5.4
 
     - name: Install-program
       run: cd openwrt && git clone https://github.com/tuanqing/install-program package/install-program
